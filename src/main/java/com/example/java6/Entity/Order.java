@@ -16,8 +16,9 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "Email", nullable = false)
+    @JoinColumn(name = "email", nullable = false)
     private Account account;
+
 
     @Column(name = "CreateDate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)

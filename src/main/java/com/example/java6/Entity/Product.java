@@ -11,9 +11,10 @@ import java.util.List;
 @Entity
 @Table(name = "product")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Trường ánh xạ với cột `Id`
+    private int id; // Trường ánh xạ với cột `Id`
 
     @Column(name = "product_Name", nullable = false)
     private String productName; // Trường ánh xạ với cột `product_Name`
@@ -25,17 +26,17 @@ public class Product {
     private Double price; // Trường ánh xạ với cột `Price`
 
     @Column(name = "CreateDate", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date createDate; // Trường ánh xạ với cột `CreateDate`
 
     @Column(name = "Available", nullable = false)
     private Boolean available; // Trường ánh xạ với cột `Available`
 
     @ManyToOne
-    @JoinColumn(name = "CategoryId", nullable = false)
+    @JoinColumn(name = "Category_Id", nullable = false)
     private Category category; // Entity ánh xạ với bảng `category`
 
     @JsonIgnore
     @OneToMany(mappedBy = "product")
-    private List<OrderDetail> orderDetails;
+    private List<OrderDetail> orderDetails; // Danh sách các OrderDetail liên quan đến Product
 }

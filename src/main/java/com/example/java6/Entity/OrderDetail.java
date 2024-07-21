@@ -1,5 +1,6 @@
 package com.example.java6.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class OrderDetail {
 
     @ManyToOne
     @JoinColumn(name = "ProductId", nullable = false)
+    @JsonBackReference
     private Product product; // Entity ánh xạ với bảng `Product`
 
     @ManyToOne

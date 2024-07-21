@@ -23,6 +23,8 @@ public class Account  {
     String password;
     @Column(name = "phone")
     String phone;
+    @Column(name = "photo")
+    String photo;
     @Column(name = "address")
     String address;
     @Column(name ="role_id")
